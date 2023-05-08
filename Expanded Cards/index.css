@@ -1,0 +1,125 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 0;
+    height:100vh;
+}
+.container{
+    display:flex;
+    width:80vw;
+}
+.panel{
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50px;
+    height: 80vh;
+    color: #fff;
+    cursor: pointer;
+    flex:0.5;
+    margin:10px;
+    position:relative;
+    transition:flex 0.7s ease-in;
+}
+.panel h3{
+    font-size: 24px;
+    margin:0;
+    opacity:0;
+    position:absolute;
+    top: 50px;
+    left:30px;
+    justify-content: flex-end;
+}
+.panel.active{
+    flex:5;
+}
+.panel.active h3{
+    opacity: 1;
+    transition: opacity 0.8s ease-in 0.8s ;
+}
+.container1{
+    text-align: center;
+}
+.progress-container{
+    display:flex;
+    position: relative;
+    max-width: 100%;
+    margin-bottom: 30px;
+    width:350px;
+    justify-content: space-between;
+}
+.progress-container::before{
+    content: ' ';
+    width:100%;
+    background-color: grey;
+    height:4px;
+    position: absolute;
+    transition: 0.4s ease;
+    z-index: -1;
+    top:50%;
+    left:0;
+}
+.progress{
+    width:0%;
+    background-color: blue;
+    max-width: 100%;
+    height:4px;
+    position: absolute;
+    transition: 0.4s ease;
+    transform: translateY(-100%);
+    z-index: -1;
+    top:50%;
+    left:0;
+}
+.circle{
+    background-color: palegoldenrod;
+    color:black;
+    border-radius: 50%;
+    height:30px;
+    width:30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border:3px solid grey;
+    transition: .4s ease;
+}
+.circle.active{
+    border-color: blue;
+}
+.btn{
+    margin-top:30px;
+    background-color: blue;
+    color: #fff;
+    padding:8px 30px;
+    border-radius: 20%;
+    margin:5px;
+    cursor: pointer;
+    font-size: 14px;
+    border:0;
+}
+.btn :active{
+    transform: scale(0.98);
+}
+.btn:focus{
+    outline: 0; 
+}
+.btn:disabled{
+    background-color: grey;
+    cursor: not-allowed;
+}
+@media (max-width:480px) {
+    .container{
+        width:100vw;
+    }
+    .panel :nth-of-type(4),
+    .panel:nth-of-type(5){
+        display: none;
+    }
+}
